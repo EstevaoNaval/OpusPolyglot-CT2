@@ -34,7 +34,7 @@ dependencies = [
 
 [tool.hatch.build.targets.wheel]
 sources = ["src"]
-packages = ["src/OpusPolyglot_CT2/*"]
+packages = ["src/opuspolyglot"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/OpusPolyglot_CT2*"]
+include = ["src/opuspolyglot*"]
