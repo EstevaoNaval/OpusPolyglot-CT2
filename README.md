@@ -23,7 +23,7 @@ pip install -e .
 Run from the repository root so the model files resolve at `./opus-mt-mul-en-ct2`.
 
 ```python
-from OpusPolyglot_CT2.translator import translate
+from opuspolyglot.translator import translate
 
 print(translate("Olá mundo!"))
 ```
