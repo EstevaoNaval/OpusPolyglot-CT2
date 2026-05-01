@@ -1,8 +1,13 @@
+import os
+
 import ctranslate2
-from .tokenizer import LightMarianTokenizer
+from tokenizer import LightMarianTokenizer
+
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+_OPUS_MT_MODEL_DIR = os.path.join(_BASE_DIR, "opus-mt-mul-en-ct2")
 
 translator = ctranslate2.Translator(
-    "./opus-mt-mul-en-ct2",
+    _OPUS_MT_MODEL_DIR,
     device="cpu",
     inter_threads=2,
     intra_threads=4,
@@ -10,10 +15,10 @@ translator = ctranslate2.Translator(
 )
 
 tokenizer = LightMarianTokenizer(
-    source_spm_path="./opus-mt-mul-en-ct2/source.spm",
-    target_spm_path="./opus-mt-mul-en-ct2/target.spm",
-    vocab_path="./opus-mt-mul-en-ct2/vocab.json",
-    target_vocab_path="./opus-mt-mul-en-ct2/target_vocab.json",
+    source_spm_path=os.path.join(_OPUS_MT_MODEL_DIR, "source.spm"),
+    target_spm_path=os.path.join(_OPUS_MT_MODEL_DIR, "target.spm"),
+    vocab_path=os.path.join(_OPUS_MT_MODEL_DIR, "vocab.json"),
+    target_vocab_path=os.path.join(_OPUS_MT_MODEL_DIR, "target_vocab.json"),
 )
 
 
