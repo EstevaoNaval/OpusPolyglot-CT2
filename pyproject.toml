@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "OpusPolyglot-CT2"
+version = "0.1.0"
+description = "OpusPolyglot-CT2 translates from multiple languages to English using CTranslate2 and a light MarianTokenizer, avoiding the need for Transformers and heavy DeepLearning libs."
+readme = "README.md"
+
+requires-python = ">=3.10"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  
+  "Intended Audience :: Developers",
+  
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  
+  "Programming Language :: Python :: 3"
+]
+
+license = { file = "LICENSE", text = "Apache-2.0" }
+license-files = ["LICEN[CS]E*", "AUTHORS.md"]
+authors = [
+  { name = "Estevão Naval", email = "estevaovgnaval@gmail.com" }
+]
+
+dependencies = [
+  "ctranslate2>=4.7.0",
+  "sentencepiece>=0.2.1",
+  "sacremoses"
+]
+
+[tool.hatch.build.targets.wheel]
+sources = ["src"]
+packages = ["src/OpusPolyglot_CT2/*"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/OpusPolyglot_CT2*"]
